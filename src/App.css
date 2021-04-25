@@ -6,6 +6,54 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
+}
+
+body {
+  background-color: #687980;
+}
+
+.card {
+  background-color: #02475e;
+  color: #fefecc;
+  width: 80%;
+  text-align: center;
+  box-shadow: 3.5px 5px #001a22;
+  justify-content: space-around;
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #f3bda1;
+  border-radius: 10%;
+  padding: 10px;
+}
+.totalCard {
+  background-color: #003647;
+  box-shadow: 5px 2px #001a22;
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+}
+.party {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  background-color: #fefecc;
+  margin: 0 2%;
+}
+.btn:hover {
+  background-color: #ffff7c;
+}
+
+.input-group-text {
+  background-color: #003647;
+  color: blanchedalmond;
 }

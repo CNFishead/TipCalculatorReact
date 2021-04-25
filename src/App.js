@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Title from "./Components/Title";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
@@ -42,44 +43,62 @@ function App() {
     });
   };
 
+  const resetState = () => {
+    setState({
+      billTotal: 0,
+      party: 1,
+      tipPercent: 0,
+      total: 0
+    })
+  }
   return (
-    <div>
+    <div className="container-fluid center card">
       <Title total={state.total.toFixed(2)} />
-      <div>
+      <div className="container-fluid formContainer">
         <form action="">
-          <label htmlFor="billTotal">Bill Total: </label>
-          <input
-            type="number"
-            name="billTotal"
-            placeholder="bill"
-            onChange={handleChange}
-          />
-          <div>
-            <label htmlFor="party">People Splitting bill: </label>
-            <button type="button" onClick={handleIncrement}>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon2">
+              Bill total:{" "}
+            </span>
+            <input
+              className="form-control"
+              type="number"
+              name="billTotal"
+              placeholder="Total"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              # of people paying:{" "}
+            </span>
+            <button className="btn" type="button" onClick={handleIncrement}>
               +
             </button>
-            <p>{state.party}</p>
+            <p className="form-control">{state.party}</p>
             <button
+              className="btn"
               type="button"
               onClick={state.party > 1 ? handleDecrement : (state.party = 1)}
             >
               -
             </button>
           </div>
-          <label htmlFor="tipPercent">
-            Tip:{" "}
-            <input
-              type="number"
-              name="tipPercent"
-              placeholder="tip"
-              onChange={handleChange}
-            />
-            %
-          </label>
-          <div>
-            <button type="reset">Reset</button>
-            <button type="submit" onClick={handleSubmit}>
+          <div className="input-group mb-4">
+            <span className="input-group-text" id="basic-addon3">Tip</span>
+              <input
+                className="form-control"
+                type="number"
+                name="tipPercent"
+                placeholder="Percentage Tip %"
+                onChange={handleChange}
+              />
+          </div>
+          <div className="container-fluid">
+            <button className="btn" type="reset" onClick={resetState}>
+              Reset
+            </button>
+            <button className="btn" type="submit" onClick={handleSubmit}>
               Submit
             </button>
           </div>
